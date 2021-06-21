@@ -1,3 +1,28 @@
-<app-user-form></app-user-form>
+<!-- <app-user-form></app-user-form>
 
-<app-book-form></app-book-form>
+<app-book-form></app-book-form> -->
+
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label for="date">Date (YYYY-MM-DD): </label>
+      <input class="form-control" [(ngModel)]="date" name="date" />
+    </div>
+    <button (click)="fetchImages()" class="btn btn-primary">
+      Get Images !
+    </button>
+  </div>
+
+  <ng-container *ngFor="let photo of photoData?.photos">
+    <div class="row">
+      <div class="col-xs-3">{{ photo | json }}</div>
+      <div class="col-xs-9">
+        <img [src]="photo.img_src" />
+      </div>
+    </div>
+  </ng-container>
+
+  <div *ngIf="photoData?.photos?.length === 0">
+    <p>No Photos taken on {{ date }}</p>
+  </div>
+</div>
