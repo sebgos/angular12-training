@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Book Form</h1>
+  <form [formGroup]="bookForm">
+    <div class="form-group">
+      <label for="name">Name: </label>
+      <input class="form-control" formControlName="name" name="name" />
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author: </label>
+      <input class="form-control" formControlName="author" name="author" />
+    </div>
+
+    <div class="form-group">
+      <label for="year">Year: </label>
+      <input class="form-control" formControlName="year" name="year" />
+    </div>
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <select class="form-control" name="genre" formControlName="genre">
+        <option *ngFor="let genre of genres" [value]="genre">
+          {{ genre }}
+        </option>
+      </select>
+    </div>
+
+    <div formArrayName="notes">
+      <h4>Notes</h4>
+      <button (click)="addNote()">+ Add another note</button>
+
+      <div *ngFor="let note of notes.controls; let i = index">
+        <div class="form-group">
+          <label for="note-{{ i }}">Note:</label>
+          <input
+            class="form-control"
+            id="note-{{ i }}"
+            type="text"
+            [formControlName]="i"
+          />
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+    <p>Form Value: {{ bookForm.value | json }}</p>
+
+    <p>Form Status: {{ bookForm.status }}</p>
+  </form>
+</div>
