@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Album } from '../modela/album.model';
+import { Photo } from '../modela/photo.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotosService {
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getAlbums() {
-    return this.http.get('https://jsonplaceholder.typicode.com/albums');
+    return this.http.get<Album[]>(
+      'https://jsonplaceholder.typicode.com/albums'
+    );
   }
   getPhotos(albumId: string) {
     const params = new HttpParams().set('albumId', albumId);
-    return this.http.get('https://jsonplaceholder.typicode.com/photos', {
-      params,
-    });
+    return this.http.get<Photo[]>(
+      'https://jsonplaceholder.typicode.com/photos',
+      {
+        params,
+      }
+    );
   }
 }

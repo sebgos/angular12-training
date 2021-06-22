@@ -2,6 +2,7 @@ import { PhotosService } from 'src/app/services/photos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Photo } from 'src/app/modela/photo.model';
 
 @Component({
   selector: 'app-photos',
@@ -9,11 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./photos.component.scss'],
 })
 export class PhotosComponent implements OnInit {
-  photos!: Observable<any>;
+  photos!: Observable<Photo[]>;
   albumId!: string;
   constructor(
-    private photosService: PhotosService,
-    private route: ActivatedRoute
+    private readonly photosService: PhotosService,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
