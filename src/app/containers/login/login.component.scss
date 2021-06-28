@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-form-field {
+  margin-top: 1em;
+}
+
+.button {
+  margin-top: 1em;
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

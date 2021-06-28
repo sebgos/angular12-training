@@ -1,0 +1,9 @@
+<article *ngIf="isLoading$; else loading" class="cards">
+  <section *ngFor="let user of usersList$ | async" class="cards__card">
+    <app-user-item [user]="user"></app-user-item>
+  </section>
+</article>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
