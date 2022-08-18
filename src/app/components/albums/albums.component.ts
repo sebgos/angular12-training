@@ -1,7 +1,7 @@
 import { PhotosService } from 'src/app/services/photos.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Album } from 'src/app/modela/album.model';
+import { Album } from 'src/app/models/album.model';
 
 @Component({
   selector: 'app-albums',

@@ -3,7 +3,6 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { HttpParams } from '@angular/common/http';
 
 import { PhotosService } from './photos.service';
 

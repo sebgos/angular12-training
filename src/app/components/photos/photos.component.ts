@@ -2,7 +2,7 @@ import { PhotosService } from 'src/app/services/photos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Photo } from 'src/app/modela/photo.model';
+import { Photo } from 'src/app/models/photo.model';
 
 @Component({
   selector: 'app-photos',

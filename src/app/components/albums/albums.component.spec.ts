@@ -55,8 +55,6 @@ describe('AlbumsComponent', () => {
   });
 
   it('should render albums', () => {
-    component.ngOnInit();
-    fixture.detectChanges();
     const aElements = fixture.debugElement.queryAll(By.css('a'));
     expect(aElements.length).toEqual(2);
     expect(aElements[0].nativeElement.text).toContain('title 1');
