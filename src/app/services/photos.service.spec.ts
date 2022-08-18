@@ -17,8 +17,8 @@ describe('PhotosService', () => {
       providers: [PhotosService],
     });
     injector = getTestBed();
-    service = injector.get(PhotosService);
-    httpMock = injector.get(HttpTestingController);
+    service = TestBed.inject(PhotosService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
